@@ -5,8 +5,7 @@ Machine learning-based genomic prediction and SHAP interpretation of meropenem r
 
 ### 🔍 Overview
 
-This repository presents a complete and explainable **machine learning pipeline** for predicting *meropenem resistance* in *Klebsiella pneumoniae* using genomic antimicrobial resistance (AMR) profiles.
-The study integrates **bioinformatics**, **machine learning**, and **explainable AI (SHAP)** to identify the key genetic determinants associated with carbapenem resistance and to visualize their global and temporal distribution.
+In this project, I used machine learning to study meropenem resistance in *Klebsiella pneumoniae* using genomic resistance features. I used SHAP to examine which features contributed most to model predictions and plotted patterns across locations and years.
 
 ---
 
@@ -39,7 +38,7 @@ klebsiella-pneumoniae-meropenem-amr-prediction/
 
 Carbapenem-resistant *Klebsiella pneumoniae* (CRKP) is a major global health concern.
 Resistance is commonly driven by **carbapenemase genes** such as *blaKPC*, *blaNDM*, and *blaOXA*.
-This project applies **supervised learning** to predict resistance phenotypes from genomic AMR data and employs **SHAP (SHapley Additive exPlanations)** for transparent model interpretation.
+I trained a supervised model using genomic AMR features and used SHAP (SHapley Additive exPlanations) to interpret its predictions.
 
 ---
 
@@ -49,7 +48,7 @@ This project applies **supervised learning** to predict resistance phenotypes fr
 
 * Source: curated genomic AMR surveillance data for *K. pneumoniae* isolates.
 * Key fields: `AMR_genotypes`, `Location`, `Year`, and isolate metadata.
-* Cleaned and standardized location and gene entries.
+* I cleaned and standardized location and gene entries.
 
 ### 2️⃣ Label Definition
 
@@ -58,8 +57,8 @@ This project applies **supervised learning** to predict resistance phenotypes fr
 
 ### 3️⃣ Feature Extraction
 
-* Encoded AMR gene lists using **CountVectorizer** → binary gene presence matrix.
-* Added metadata features (year, location) as categorical encodings.
+* I encoded AMR gene lists with **CountVectorizer** to make a binary gene-presence matrix.
+* I encoded year and location as additional features.
 
 ### 4️⃣ Model Development
 
@@ -69,14 +68,14 @@ This project applies **supervised learning** to predict resistance phenotypes fr
 
 ### 5️⃣ Explainability and Interpretation
 
-* **SHAP analysis** identified top genomic predictors:
+* I used **SHAP** to examine these top model features:
   `blaKPC-2`, `blaOXA-1`, `aac(6’)-Ib-cr5`, `parC_S80I`, `gyrA_S83I`.
-* Generated global bar and beeswarm plots + isolate-specific force plots.
+* I generated summary bar plots, beeswarm plots, and isolate-level force plots.
 
 ### 6️⃣ Geospatial and Temporal Analysis
 
-* Country-level heatmap showing resistance hotspots: Tunisia, Brazil, Pakistan.
-* Smoothed (3-year rolling) resistance trend visualization over time.
+* I plotted the country-level distribution, including Tunisia, Brazil, and Pakistan.
+* I plotted resistance trends using a three-year rolling mean.
 
 ---
 
@@ -119,15 +118,15 @@ This project applies **supervised learning** to predict resistance phenotypes fr
 
 ## 📈 Key Findings
 
-* Machine learning can accurately predict **meropenem resistance** from genomic features.
-* Explainable AI (SHAP) reveals biologically meaningful gene–phenotype relationships.
-* Resistance is geographically heterogeneous, highlighting **regional surveillance needs**.
+* The model performed well on the dataset used here; we still need independent validation before assuming the same performance elsewhere.
+* SHAP helped me see which recorded genomic features contributed most to predictions; it does not establish a causal gene–phenotype relationship.
+* Recorded resistance patterns varied by country. Dataset sampling may contribute to those differences.
 
 ---
 
 ## 🧾 Citation
 
-If you use this repository or reproduce the workflow, please cite:
+If you reuse this work, please credit:
 
 > **Musa Al-Hassan Kromah** (2025). *Machine Learning-Based Genomic Prediction and SHAP Interpretation of Meropenem Resistance in Klebsiella pneumoniae.* Kaggle / GitHub Project.
 
